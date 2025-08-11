@@ -27,11 +27,11 @@ export const ContainerScroll = ({
   }, []);
 
   const scaleDimensions = () => {
-    return isMobile ? [0.7, 0.9] : [1.5, 1];
+    return isMobile ? [0.7, 0.9] : [1.105, 1];
   };
 
   const translateDimensions = () => {
-    return isMobile ? [0, -100] : [1000, 0];
+    return isMobile ? [0, -100] : [40, 0];
   };
   const rotate = useTransform(scrollYProgress, [0, 1], [20, 0]);
   const scale = useTransform(scrollYProgress, [0, 1], scaleDimensions());
@@ -87,6 +87,7 @@ export const Card = ({
         // translateY: translate,
         rotateX: rotate, // rotate in X-axis
         scale,
+        translateY: translate,
         boxShadow:
           "0 0 #0000004d, 0 9px 20px #0000004a, 0 37px 37px #00000042, 0 84px 50px #00000026, 0 149px 60px #0000000a, 0 233px 65px #00000003",
       }}

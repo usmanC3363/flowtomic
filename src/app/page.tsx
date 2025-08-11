@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <main className="flex flex-col items-center justify-center">
       <Navbar />
-      <section className="relative flex h-screen w-full flex-col items-center !overflow-visible rounded-md bg-neutral-950 antialiased">
+      <section className="relative flex h-[125vh] w-full flex-col items-center !overflow-visible rounded-md bg-neutral-950 antialiased">
         <div className="absolute inset-0 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_35%,#223_100%)]"></div>
         <div className="mt-[-100px] flex flex-col md:mt-[-50px]">
           <ContainerScroll
@@ -23,7 +23,7 @@ export default function Home() {
                   </span>
                 </Button>
                 <h1 className="bg-gradient-to-b from-white to-neutral-600 bg-clip-text font-sans text-5xl font-bold text-transparent md:text-8xl">
-                  Automate Your Work With Fuzzie
+                  Automate Your Work With Flowtomic
                 </h1>
               </div>
             }
