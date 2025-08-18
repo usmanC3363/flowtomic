@@ -1,44 +1,46 @@
 "use client";
+
 import React, { useEffect, useRef } from "react";
-import * as LR from "@uploadcare/blocks";
 import { useRouter } from "next/navigation";
+import * as UC from "@uploadcare/file-uploader";
+import "@uploadcare/file-uploader/web/uc-file-uploader-regular.min.css";
 
 type Props = {
-  onUpload: (e: string) => any;
+  onUpload: (cdnUrl: string) => any;
 };
-
-LR.registerBlocks(LR);
 
 const UploadCareButton = ({ onUpload }: Props) => {
   const router = useRouter();
-  const ctxProviderRef = useRef<
-    typeof LR.UploadCtxProvider.prototype & LR.UploadCtxProvider
-  >(null);
+  const ctxRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    const handleUpload = async (e: any) => {
-      const file = await onUpload(e.detail.cdnUrl);
-      if (file) {
+    const ctxEl = ctxRef.current;
+    if (!ctxEl) return;
+
+    const handleSuccess = async (e: CustomEvent<{ cdnUrl: string }>) => {
+      const result = await onUpload(e.detail.cdnUrl);
+      if (result) {
         router.refresh();
       }
     };
-    ctxProviderRef.current.addEventListener(
-      "file-upload-success",
-      handleUpload,
-    );
-  }, []);
+
+    ctxEl.addEventListener("file-upload-success", handleSuccess);
+    return () => {
+      ctxEl.removeEventListener("file-upload-success", handleSuccess);
+    };
+  }, [onUpload, router]);
+
+  // Ensure Web Components are registered
+  UC.defineComponents(UC);
 
   return (
-    // <div>
-    //   <lr-config ctx-name="my-uploader" pubkey="a9428ff5ff90ae7a64eb" />
+    <div>
+      <uc-config ctx-name="my-uploader" pubkey="YOUR_PUBLIC_KEY" />
 
-    //   <lr-file-uploader-regular
-    //     ctx-name="my-uploader"
-    //     css-src={`https://cdn.jsdelivr.net/npm/@uploadcare/blocks@0.35.2/web/lr-file-uploader-regular.min.css`}
-    //   />
+      <uc-upload-ctx-provider ctx-name="my-uploader" ref={ctxRef} />
 
-    //   <lr-upload-ctx-provider ctx-name="my-uploader" ref={ctxProviderRef} />
-    // </div>
+      <uc-file-uploader-regular ctx-name="my-uploader" />
+    </div>
   );
 };
 
