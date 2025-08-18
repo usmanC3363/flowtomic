@@ -14,7 +14,7 @@ import { clients, products } from "../lib/constants";
 
 export default function Home() {
   return (
-    <main className="box-border flex w-screen flex-col items-center justify-center">
+    <main className="mb-40 box-border flex w-screen flex-col items-center justify-center">
       <Navbar />
       <section className="relative flex h-full w-full flex-col items-center !overflow-visible rounded-md bg-neutral-950 antialiased">
         <div className="absolute inset-0 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_35%,#223_100%)]"></div>

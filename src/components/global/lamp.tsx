@@ -34,7 +34,7 @@ export const LampContainer = ({
   return (
     <div
       className={cn(
-        "relative z-0 flex min-h-[800px] w-full flex-col items-center justify-center overflow-hidden rounded-md bg-neutral-950",
+        "relative z-0 flex min-h-[800px] w-screen flex-col items-center justify-center overflow-hidden rounded-md bg-neutral-950 xl:min-h-[55vh]",
         className,
       )}
     >
@@ -98,9 +98,9 @@ export const LampContainer = ({
         <div className="relative h-40 w-[40rem]">
           <SparklesCore
             background="transparent"
-            minSize={0.4}
-            maxSize={1}
-            particleDensity={1200}
+            minSize={0.3}
+            maxSize={0.8}
+            particleDensity={2000}
             className="h-full w-full"
             particleColor="#FFFFFF"
           />
