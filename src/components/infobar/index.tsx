@@ -21,7 +21,7 @@ const InfoBar = (props: Props) => {
   const { credits, tier, setCredits, setTier } = useBilling();
 
   const onGetPayment = async () => {
-    const response = await onPaymentDetails();
+    // const response = await onPaymentDetails();
     if (response) {
       setTier(response.tier!);
       setCredits(response.credits!);

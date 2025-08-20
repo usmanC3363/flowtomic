@@ -11,6 +11,7 @@ import { LampComponent } from "../components/global/lamp";
 import Navbar from "../components/global/navbar";
 import { Button } from "../components/ui/button";
 import { clients, products } from "../lib/constants";
+import { ModeToggle } from "../components/global/mode-toggle";
 
 export default function Home() {
   return (
