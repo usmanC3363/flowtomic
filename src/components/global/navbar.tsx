@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { MenuIcon } from "lucide-react";
+import { UserButton } from "@clerk/nextjs";
 
 type Props = {};
 

@@ -4,16 +4,15 @@ import { ModeToggle } from "../global/mode-toggle";
 import { Book, Headphones, Search } from "lucide-react";
 import Templates from "../icons/cloud_download";
 import { Input } from "../../components/ui/input";
-
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "../../components/ui/tooltip";
-// import { UserButton } from '@clerk/nextjs'
-import { useBilling } from "../../app/providers/billingprovider";
-// import { onPaymentDetails } from "../../app/(main)/(pages)/billing/_actions/payment-connections";
+import { UserButton } from "@clerk/nextjs";
+import { useBilling } from "../../providers/billingprovider";
+import { onPaymentDetails } from "../../app/(main)/(pages)/billing/_actions/payment-connections";
 
 type Props = {};
 
@@ -21,7 +20,7 @@ const InfoBar = (props: Props) => {
   const { credits, tier, setCredits, setTier } = useBilling();
 
   const onGetPayment = async () => {
-    // const response = await onPaymentDetails();
+    const response = await onPaymentDetails();
     if (response) {
       setTier(response.tier!);
       setCredits(response.credits!);
@@ -71,7 +70,7 @@ const InfoBar = (props: Props) => {
           </TooltipContent>
         </Tooltip>
       </TooltipProvider>
-      {/* <UserButton /> */}
+      <UserButton />
     </div>
   );
 };

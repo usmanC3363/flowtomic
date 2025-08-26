@@ -4,6 +4,8 @@ import React, { useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import * as UC from "@uploadcare/file-uploader";
 import "@uploadcare/file-uploader/web/uc-file-uploader-regular.min.css";
+import { FileUploaderRegular } from "@uploadcare/react-uploader/next";
+import "@uploadcare/react-uploader/core.css";
 
 type Props = {
   onUpload: (cdnUrl: string) => any;
@@ -12,6 +14,10 @@ type Props = {
 const UploadCareButton = ({ onUpload }: Props) => {
   const router = useRouter();
   const ctxRef = useRef<HTMLElement>(null);
+
+  // const ctxProviderRef = useRef<
+  //   typeof LR.UploadCtxProvider.prototype & LR.UploadCtxProvider
+  // >(null);
 
   useEffect(() => {
     const ctxEl = ctxRef.current;
@@ -34,12 +40,12 @@ const UploadCareButton = ({ onUpload }: Props) => {
   UC.defineComponents(UC);
 
   return (
-    <div>
-      <uc-config ctx-name="my-uploader" pubkey="YOUR_PUBLIC_KEY" />
-
-      <uc-upload-ctx-provider ctx-name="my-uploader" ref={ctxRef} />
-
-      <uc-file-uploader-regular ctx-name="my-uploader" />
+    <div className="">
+      <FileUploaderRegular
+        sourceList="local, camera, facebook, gdrive"
+        classNameUploader="uc-light"
+        pubkey="f9dc58d927b38dfb233e"
+      />
     </div>
   );
 };

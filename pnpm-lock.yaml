@@ -62,6 +62,9 @@ importers:
       '@uploadcare/file-uploader':
         specifier: ^1.19.4
         version: 1.19.4
+      '@uploadcare/react-uploader':
+        specifier: ^1.10.2
+        version: 1.10.2(@types/react@19.1.9)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       axios:
         specifier: ^1.6.8
         version: 1.11.0
@@ -1523,8 +1526,21 @@ packages:
   '@uploadcare/file-uploader@1.19.4':
     resolution: {integrity: sha512-xCnXtQyvoujHEGEjZNNGiF/94PZ519nkp+hWovvn/w1WIRSwJ2finD214C54X50J4Yefw2f9KmkT8d8cqXnjtA==}
 
+  '@uploadcare/file-uploader@1.19.5':
+    resolution: {integrity: sha512-STzb0+SGSNiEmhCDbcRyUdlY84mI/LDZoBhYxXA9rpUsFe/1YpzWYfa60yu/zXCBs60XWig0QPKgkEn4ux90oA==}
+
   '@uploadcare/image-shrink@6.17.0':
     resolution: {integrity: sha512-9ZIQR2Uad7BeSH0hqo7W/VenHCwnEqRjFpN6SGynTzG6BxoH/HK8NkuMKdJ8URFisW7dZSXpVMZrCL5kf7FfKA==}
+
+  '@uploadcare/react-adapter@0.3.1':
+    resolution: {integrity: sha512-OyGmGkD/u1CSlFZRY+fze/i90B1NDcdQblRn9bgNFY5JdGQMBWfiUGRbw0CKVcKXKkMJY7cuR8qVEzVd1U/UUQ==}
+    peerDependencies:
+      '@types/react': '>= 17.0.0'
+
+  '@uploadcare/react-uploader@1.10.2':
+    resolution: {integrity: sha512-vQZ4N7fSrgUeCVd+muGJWg207E7fjI7g+4Is5u//Dl1JS5cun0lVK7bjLzenQ8Ywc1IYKI8Ddw/SrjX6lerKGA==}
+    peerDependencies:
+      '@types/react': '>= 17.0.0'
 
   '@uploadcare/upload-client@6.17.0':
     resolution: {integrity: sha512-ir6xo6HLy3TVn4lVJ+9fOOcq8vvgMmcXoSP/mM+l1CTKKJmd0hzXqNkZ1CYyz7PiRhLPUC6fprmUuA7rnVC87g==}
@@ -4984,7 +5000,41 @@ snapshots:
       - bufferutil
       - utf-8-validate
 
+  '@uploadcare/file-uploader@1.19.5':
+    dependencies:
+      '@symbiotejs/symbiote': 1.11.7
+      '@uploadcare/cname-prefix': 6.17.0
+      '@uploadcare/image-shrink': 6.17.0
+      '@uploadcare/upload-client': 6.17.0
+      keyux: 0.7.2
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
+
   '@uploadcare/image-shrink@6.17.0': {}
+
+  '@uploadcare/react-adapter@0.3.1(@types/react@19.1.9)':
+    dependencies:
+      '@types/react': 19.1.9
+
+  '@uploadcare/react-uploader@1.10.2(@types/react@19.1.9)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
+    dependencies:
+      '@types/react': 19.1.9
+      '@uploadcare/file-uploader': 1.19.5
+      '@uploadcare/react-adapter': 0.3.1(@types/react@19.1.9)
+    optionalDependencies:
+      next: 15.4.5(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+    transitivePeerDependencies:
+      - '@babel/core'
+      - '@opentelemetry/api'
+      - '@playwright/test'
+      - babel-plugin-macros
+      - babel-plugin-react-compiler
+      - bufferutil
+      - react
+      - react-dom
+      - sass
+      - utf-8-validate
 
   '@uploadcare/upload-client@6.17.0':
     dependencies:

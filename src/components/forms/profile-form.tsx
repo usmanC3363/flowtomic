@@ -15,41 +15,45 @@ import {
 } from "../ui/form";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
-import { Loader2 } from "lucide-react";
+import { Loader2Icon, Loader2 } from "lucide-react";
 
 type Props = {
-  user: any;
-  onUpdate?: any;
+  // user: any;
+  // onUpdate?: any;
 };
 
-const ProfileForm = ({ user, onUpdate }: Props) => {
+const ProfileForm = () => {
   const [isLoading, setIsLoading] = useState(false);
   const form = useForm<z.infer<typeof EditUserProfileSchema>>({
     mode: "onChange",
+    // coming from types.ts
     resolver: zodResolver(EditUserProfileSchema),
     defaultValues: {
-      name: user.name,
-      email: user.email,
+      name: "",
+      email: "",
+      // name: user.name,
+      // email: user.email,
     },
   });
 
-  const handleSubmit = async (
-    values: z.infer<typeof EditUserProfileSchema>,
-  ) => {
-    setIsLoading(true);
-    await onUpdate(values.name);
-    setIsLoading(false);
-  };
+  // const handleSubmit = async (
+  //   values: z.infer<typeof EditUserProfileSchema>,
+  // ) => {
+  //   setIsLoading(true);
+  //   await onUpdate(values.name);
+  //   setIsLoading(false);
+  // };
 
-  useEffect(() => {
-    form.reset({ name: user.name, email: user.email });
-  }, [user]);
+  // useEffect(() => {
+  //   form.reset({ name: user.name, email: user.email });
+  // }, [user]);
 
   return (
     <Form {...form}>
       <form
         className="flex flex-col gap-6"
-        onSubmit={form.handleSubmit(handleSubmit)}
+        onSubmit={() => {}}
+        // onSubmit={form.handleSubmit(handleSubmit)}
       >
         <FormField
           disabled={isLoading}
@@ -85,15 +89,17 @@ const ProfileForm = ({ user, onUpdate }: Props) => {
         />
         <Button
           type="submit"
-          className="self-start hover:bg-[#2F006B] hover:text-white"
+          className="group self-start transition-all duration-100 ease-linear hover:bg-[#2F006B] hover:text-white"
         >
-          {isLoading ? (
+          {false ? (
             <>
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />
               Saving
             </>
           ) : (
-            "Save User Settings"
+            <span className="transition-all duration-150 ease-linear">
+              Save User Settings
+            </span>
           )}
         </Button>
       </form>
