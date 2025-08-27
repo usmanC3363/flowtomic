@@ -3,6 +3,8 @@ import { authMiddleware } from "@clerk/nextjs";
 export default authMiddleware({
   publicRoutes: [
     "/",
+    // "/sign-in",
+    // "/sign-up",
     "/api/clerk-webhook",
     "/api/drive-activity/notification",
     "/api/payment/success",
@@ -14,6 +16,8 @@ export default authMiddleware({
     "/api/flow",
     "/api/cron/wait",
   ],
+  // signInUrl: "/sign-in",
+  // signUpUrl: "/sign-up",
 });
 
 export const config = {
