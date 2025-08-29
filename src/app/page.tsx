@@ -1,4 +1,4 @@
-import { CheckIcon, LucidePhoneOutgoing, PhoneCall } from "lucide-react";
+import { CheckIcon, LucidePhoneOutgoing } from "lucide-react";
 import {
   CardBody,
   CardContainer,
@@ -11,7 +11,7 @@ import { LampComponent } from "../components/global/lamp";
 import Navbar from "../components/global/navbar";
 import { Button } from "../components/ui/button";
 import { clients, products } from "../lib/constants";
-import { ModeToggle } from "../components/global/mode-toggle";
+// import { ModeToggle } from "../components/global/mode-toggle";
 
 export default function Home() {
   return (
