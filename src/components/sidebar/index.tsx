@@ -22,8 +22,8 @@ const MenuOptions = (props: Props) => {
   return (
     <nav className="flex h-screen flex-col items-center justify-between gap-10 overflow-scroll px-2 py-6 dark:bg-black">
       <div className="flex flex-col items-center justify-center gap-8">
-        <Link className="flex flex-row font-bold" href="/">
-          fuzzie.
+        <Link className="flex flex-row font-bold uppercase" href="/">
+          Flowtomic.
         </Link>
         <TooltipProvider>
           {menuOptions.map((menuItem) => (

@@ -147,6 +147,7 @@ const EditorCanvas = (props: Props) => {
 
   const nodeTypes = useMemo(
     () => ({
+      // right now components are handling logic but can be used for different outputs
       Action: EditorCanvasCardSingle,
       Trigger: EditorCanvasCardSingle,
       Email: EditorCanvasCardSingle,

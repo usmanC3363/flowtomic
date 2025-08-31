@@ -60,6 +60,7 @@ const initialState: EditorState = {
 };
 
 const editorReducer = (
+  // passing the EditorState to reducer, set to initialState
   state: EditorState = initialState,
   action: EditorActions,
 ): EditorState => {
