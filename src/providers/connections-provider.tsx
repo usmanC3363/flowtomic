@@ -118,6 +118,7 @@ export const ConnectionsProvider = ({ children }: ConnectionWithChildProps) => {
   return <Provider value={values}>{children}</Provider>;
 };
 
+// used in render-connection-accordion,
 export const useNodeConnections = () => {
   const nodeConnection = useContext(ConnectionsContext);
   return { nodeConnection };

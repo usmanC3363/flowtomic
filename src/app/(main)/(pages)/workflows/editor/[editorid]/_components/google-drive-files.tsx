@@ -1,3 +1,6 @@
+// used in content-based-on-title
+// listener for user to listen on some folder for activity
+
 "use client";
 import React, { useEffect, useState } from "react";
 import { toast } from "sonner";
@@ -13,6 +16,7 @@ const GoogleDriveFiles = (props: Props) => {
   const [loading, setLoading] = useState(false);
   const [isListening, setIsListening] = useState(false);
 
+  // using axios for listening for drive-activity with api
   const reqGoogle = async () => {
     setLoading(true);
     const response = await axios.get("/api/drive-activity");

@@ -10,7 +10,7 @@ import {
   getSlackConnection,
   listBotChannels,
 } from "@/src/app/(main)/(pages)/connections/_actions/slack-connection";
-import { Option } from "@/src/components/ui/multiple-selector";
+import { Option } from "@/src/lib/types";
 
 export const onDragStart = (
   event: any,
@@ -39,6 +39,8 @@ export const onDiscordContent = (
     content: event.target.value,
   }));
 };
+
+// used in content-based-on-title
 
 export const onContentChange = (
   nodeConnection: ConnectionProviderProps,

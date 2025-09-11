@@ -1,7 +1,7 @@
 import { AccordionContent } from "@/src/components/ui/accordion";
 import { ConnectionProviderProps } from "@/src/providers/connections-provider";
 import { EditorState } from "@/src/providers/editor-provider";
-import { nodeMapper } from "@/src/lib/types";
+import { nodeMapper, Option } from "@/src/lib/types";
 import React, { useEffect } from "react";
 import {
   Card,
@@ -19,15 +19,6 @@ import { getFileMetaData } from "@/src/app/(main)/(pages)/connections/_actions/g
 import axios from "axios";
 import { toast } from "sonner";
 
-export interface Option {
-  value: string;
-  label: string;
-  disable?: boolean;
-  /** fixed option that can't be removed. */
-  fixed?: boolean;
-  /** Group the options by providing key. */
-  [key: string]: string | boolean | undefined;
-}
 interface GroupOption {
   [key: string]: Option[];
 }
@@ -69,12 +60,14 @@ const ContentBasedOnTitle = ({
 
   // @ts-ignore
   const nodeConnectionType: any = nodeConnection[nodeMapper[title]];
+  // nodeMapper coming from lib types, N/S/D/G
   if (!nodeConnectionType) return <p>Not connected</p>;
 
   const isConnected =
     title === "Google Drive"
       ? !nodeConnection.isLoading
-      : !!nodeConnectionType[
+      : // forcing exactly true or false with !!
+        !!nodeConnectionType[
           `${
             title === "Slack"
               ? "slackAccessToken"
@@ -99,7 +92,7 @@ const ContentBasedOnTitle = ({
         )}
         <div className="flex flex-col gap-3 px-6 py-3 pb-20">
           <p>{title === "Notion" ? "Values to be stored" : "Message"}</p>
-
+          {/* something missing from vid at 1:28:00 or before */}
           <Input
             type="text"
             value={nodeConnectionType.content}

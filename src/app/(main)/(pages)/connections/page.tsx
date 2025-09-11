@@ -1,3 +1,5 @@
+// need to check if using currentUser is appropriate here, or how to overcome it mentioned using charges, it is displaying error on user: id, saying doesnt exist on useUserReturn
+
 import { CONNECTIONS } from "@/src/lib/constants";
 import React from "react";
 import ConnectionCard from "./_components/connection-card";

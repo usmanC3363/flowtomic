@@ -64,14 +64,14 @@ const RenderConnectionAccordion = ({
   } = connection;
 
   const { nodeConnection } = useNodeConnections();
+  // importing values from store.tsx
   const { slackChannels, selectedSlackChannels, setSelectedSlackChannels } =
     useFlowtomicStore();
 
-  const [open, setOpen] = React.useState(false);
-  const [value, setValue] = React.useState("");
-
   const connectionData = (nodeConnection as any)[connectionKey];
 
+  const [open, setOpen] = React.useState(false);
+  const [value, setValue] = React.useState("");
   const isConnected =
     alwaysTrue ||
     (nodeConnection[connectionKey] &&

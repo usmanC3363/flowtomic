@@ -1,9 +1,11 @@
+// used in google-drive-files
 "use server";
-import { Option } from "@/src/components/ui/multiple-selector";
+import { Option } from "@/src/lib/types";
 import { db } from "@/src/lib/db";
 import { auth, currentUser } from "@clerk/nextjs/server";
 
 export const getGoogleListener = async () => {
+  // using auth from next js
   const { userId } = await auth();
 
   if (userId) {

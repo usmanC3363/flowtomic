@@ -1,14 +1,7 @@
-import { create } from "zustand";
+// created for render-connection-accordion, using zustand
 
-export interface Option {
-  value: string;
-  label: string;
-  disable?: boolean;
-  /** fixed option that can't be removed. */
-  fixed?: boolean;
-  /** Group the options by providing key. */
-  [key: string]: string | boolean | undefined;
-}
+import { create } from "zustand";
+import { Option } from "./lib/types";
 
 type FlowtomicStore = {
   googleFile: any;
@@ -19,6 +12,7 @@ type FlowtomicStore = {
   setSelectedSlackChannels: (selectedSlackChannels: Option[]) => void;
 };
 
+// invoking function two times,
 export const useFlowtomicStore = create<FlowtomicStore>()((set) => ({
   googleFile: {},
   setGoogleFile: (googleFile: any) => set({ googleFile }),

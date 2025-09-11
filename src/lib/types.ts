@@ -11,6 +11,17 @@ export const WorkflowFormSchema = z.object({
   description: z.string().min(1, "Required"),
 });
 
+// used in store.tsx, content-based-on-title, multiple-selector
+export interface Option {
+  value: string;
+  label: string;
+  disable?: boolean;
+  /** fixed option that can't be removed. */
+  fixed?: boolean;
+  /** Group the options by providing key. */
+  [key: string]: string | boolean | undefined;
+}
+
 export type ConnectionTypes = "Google Drive" | "Notion" | "Slack" | "Discord";
 
 export type Connection = {

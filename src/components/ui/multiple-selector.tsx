@@ -13,16 +13,8 @@ import { Command as CommandPrimitive, useCommandState } from "cmdk";
 import { useEffect, forwardRef } from "react";
 import { Badge } from "@/src/components/ui/badge";
 import { cn } from "@/src/lib/utils";
+import { Option } from "@/src/lib/types";
 
-export interface Option {
-  value: string;
-  label: string;
-  disable?: boolean;
-  /** fixed option that can't be removed. */
-  fixed?: boolean;
-  /** Group the options by providing key. */
-  [key: string]: string | boolean | undefined;
-}
 interface GroupOption {
   [key: string]: Option[];
 }

@@ -1,5 +1,6 @@
+// used in content-based-on-title
 import React, { useCallback } from "react";
-import { Option } from "./content-based-on-title";
+import { Option } from "@/src/lib/types";
 import { ConnectionProviderProps } from "@/src/providers/connections-provider";
 import { usePathname } from "next/navigation";
 import { Button } from "@/src/components/ui/button";

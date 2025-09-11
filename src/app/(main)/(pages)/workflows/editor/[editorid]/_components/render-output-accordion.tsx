@@ -1,3 +1,5 @@
+// used in editor-canvas-sidebar
+
 import { ConnectionProviderProps } from "@/src/providers/connections-provider";
 import { EditorState } from "@/src/providers/editor-provider";
 import { useFlowtomicStore } from "@/src/store";
@@ -10,12 +12,14 @@ type Props = {
 };
 
 const RenderOutputAccordion = ({ state, nodeConnection }: Props) => {
+  // getting values from useFlowtomicStore in store.tsx
   const {
     googleFile,
     setGoogleFile,
     selectedSlackChannels,
     setSelectedSlackChannels,
   } = useFlowtomicStore();
+
   return (
     <ContentBasedOnTitle
       nodeConnection={nodeConnection}
