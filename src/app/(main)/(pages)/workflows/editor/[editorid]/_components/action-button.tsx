@@ -39,6 +39,8 @@ const ActionButton = ({
     }
   }, [nodeConnection.discordNode]);
 
+  // once this is created, we are getting
+
   const onStoreNotionContent = useCallback(async () => {
     console.log(
       nodeConnection.notionNode.databaseId,
@@ -119,6 +121,7 @@ const ActionButton = ({
   }, [nodeConnection, channels]);
 
   const renderActionButton = () => {
+    // may improve this by passing the props as logic and not a switch statement
     switch (currentService) {
       case "Discord":
         return (

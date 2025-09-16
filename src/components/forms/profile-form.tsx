@@ -26,7 +26,7 @@ const ProfileForm = ({ user, onUpdate }: Props) => {
   const [isLoading, setIsLoading] = useState(false);
   const form = useForm<z.infer<typeof EditUserProfileSchema>>({
     mode: "onChange",
-    // coming from types.ts
+    // EditUserProfileSchema coming from types.ts
     resolver: zodResolver(EditUserProfileSchema),
     defaultValues: {
       name: user.name,
@@ -88,7 +88,7 @@ const ProfileForm = ({ user, onUpdate }: Props) => {
           type="submit"
           className="group self-start transition-all duration-100 ease-linear hover:bg-[#2F006B] hover:text-white"
         >
-          {false ? (
+          {isLoading ? (
             <>
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />
               Saving

@@ -74,6 +74,7 @@ export const getNotionDatabase = async (
   return response;
 };
 
+// used in action-button
 export const onCreateNewPageInDatabase = async (
   databaseId: string,
   accessToken: string,

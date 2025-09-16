@@ -148,6 +148,7 @@ export const fetchBotSlackChannels = async (
   token: string,
   setSlackChannels: (slackChannels: Option[]) => void,
 ) => {
+  // listBotChannels coming from slack-connection, gets Option as a Promise
   await listBotChannels(token)?.then((channels) => setSlackChannels(channels));
 };
 

@@ -40,6 +40,7 @@ const FlowInstance = ({ children, edges, nodes }: Props) => {
     const flows: any = [];
     const connectedEdges = edges.map((edge) => edge.target);
     connectedEdges.map((target) => {
+      // nodes.forEach
       nodes.map((node) => {
         if (node.id === target) {
           flows.push(node.type);

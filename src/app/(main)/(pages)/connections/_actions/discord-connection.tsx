@@ -92,6 +92,7 @@ export const onDiscordConnect = async (
 };
 
 export const getDiscordConnectionUrl = async () => {
+  // need to check the server/clerkjs issue as before
   const user = await currentUser();
   if (user) {
     const webhook = await db.discordWebhook.findFirst({

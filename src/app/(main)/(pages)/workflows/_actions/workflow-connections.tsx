@@ -37,6 +37,8 @@ export const onFlowPublish = async (workflowId: string, state: boolean) => {
   return "Workflow unpublished";
 };
 
+// used in action-button
+
 export const onCreateNodeTemplate = async (
   content: string,
   type: string,
@@ -81,7 +83,7 @@ export const onCreateNodeTemplate = async (
       });
 
       if (channelList) {
-        //remove duplicates before insert
+        //remove duplicates before inserting into db
         const NonDuplicated = channelList.slackChannels.filter(
           (channel) => channel !== channels![0].value,
         );
